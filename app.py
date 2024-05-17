@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 import pandas as pd
 import pickle
 import sklearn
+import numpy as np
 
 app = Flask(__name__)
 data = pd.read_csv('Cleaned_data.csv')
@@ -28,8 +29,8 @@ def predict():
                            'bath': [bath],
                            'BHK': [bhk]})
     prediction = str(pipe.predict(input1)[0])
-
-    return prediction
+    prediction = prediction * 100000
+    return np.round(prediction, 2)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
