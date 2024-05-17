@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask, render_template, request
 import pandas as pd
 import pickle
@@ -28,9 +27,9 @@ def predict():
                            'total_sqft': [sqft],
                            'bath': [bath],
                            'BHK': [bhk]})
-    prediction = str(pipe.predict(input1)[0])
+    prediction = pipe.predict(input1)[0]
     prediction = prediction * 100000
-    return np.round(prediction, 2)
+    return str(np.round(prediction, 2))
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
