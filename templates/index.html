@@ -10,17 +10,61 @@
 
     <title>House Price Predictor</title>
     <style>
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
       body {
-        background-color: #343a40; /* Bootstrap dark background */
+        background-color: #282c34;
         color: #ffffff;
+        font-family: 'Arial', sans-serif;
+        animation: fadeIn 2s;
       }
+
       .form-container {
-        background-color: #495057; /* Slightly lighter dark background */
-        padding: 20px;
-        border-radius: 5px;
+        background-color: #3b3f47;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 2s;
       }
-      .form-container h1 {
+
+      .form-container h2 {
         margin-bottom: 20px;
+        color: #61dafb;
+      }
+
+      .form-container .btn-primary {
+        background-color: #61dafb;
+        border-color: #61dafb;
+      }
+
+      .form-container .btn-primary:hover {
+        background-color: #21a1f1;
+        border-color: #21a1f1;
+      }
+
+      .footer {
+        background-color: #3b3f47;
+        padding: 10px 0;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        color: #ffffff;
+        animation: fadeIn 2s;
+      }
+
+      .footer a {
+        color: #61dafb;
+        text-decoration: none;
+        margin-left: 10px;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -29,6 +73,7 @@
       <div class="row justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-md-8 col-lg-6 form-container text-center">
           <h2>Welcome to Bengaluru House Price Predictor!</h2>
+          <p>This project is built using Python, Jinja2, scikit-learn for regression, and Scaler and One-Hot Encoding for preprocessing.</p>
           <form method="post" accept-charset="utf-8" onsubmit="send_data(event)">
             <div class="form-group">
               <label for="location"><b>Select the Location:</b></label>
@@ -40,15 +85,15 @@
             </div>
             <div class="form-group">
               <label for="bhk"><b>Enter BHK:</b></label>
-              <input type="text" class="form-control" id="bhk" name="bhk" placeholder="Enter BHK">
+              <input type="number" class="form-control" id="bhk" name="bhk" placeholder="Enter BHK" required>
             </div>
             <div class="form-group">
               <label for="bath"><b>Enter number of bathrooms:</b></label>
-              <input type="text" class="form-control" id="bath" name="bath" placeholder="No of bathrooms">
+              <input type="number" class="form-control" id="bath" name="bath" placeholder="No of bathrooms" required>
             </div>
             <div class="form-group">
               <label for="total_sqft"><b>Enter Square Feet:</b></label>
-              <input type="text" class="form-control" id="total_sqft" name="total_sqft" placeholder="Square feet">
+              <input type="number" class="form-control" id="total_sqft" name="total_sqft" placeholder="Square feet" required>
             </div>
             <button type="submit" class="btn btn-primary">Predict Price</button>
           </form>
@@ -57,6 +102,11 @@
         </div>
       </div>
     </div>
+
+    <footer class="footer">
+      <p>&copy; 2024 Bengaluru House Price Predictor. All rights reserved.</p>
+      <a href="https://linkedin.com/in/dakshdua03" target="_blank">LinkedIn</a>
+    </footer>
 
     <script>
       function send_data(event) {
