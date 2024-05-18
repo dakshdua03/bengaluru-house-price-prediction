@@ -66,11 +66,19 @@
       .footer a:hover {
         text-decoration: underline;
       }
+
+      #prediction {
+        margin-bottom: 20px; /* Added margin bottom to avoid overlap with footer */
+      }
+
+      .content {
+        padding-bottom: 60px; /* Space for the footer */
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="row justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container content">
+      <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="col-md-8 col-lg-6 form-container text-center">
           <h2>Welcome to Bengaluru House Price Predictor!</h2>
           <p>This project is built using Python, Jinja2, scikit-learn for regression, and Scaler and One-Hot Encoding for preprocessing.</p>
